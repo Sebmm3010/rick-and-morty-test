@@ -1,22 +1,22 @@
 import { FormEvent, useContext, useState } from 'react';
-import { useForm } from '../../hooks';
-import { AuthLayout } from '../layout';
 import { AuthContext } from '../../context';
+import { AuthLayout } from '../../components/layouts';
+import { useForm } from '../../hooks';
 
 interface IForm {
-  user: string;
+  email: string;
   password: string;
 }
 
 const initForm: IForm = {
-  user: '',
+  email: '',
   password: ''
 };
 
 export const LoginPage = () => {
   const [showPassword, setshowPassword] = useState<boolean>(false);
   const { formState, handleChanges } = useForm(initForm);
-  const { user, password } = formState as IForm;
+  const { email, password } = formState as IForm;
   const { setLogin } = useContext(AuthContext);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -36,15 +36,15 @@ export const LoginPage = () => {
             Ingresar
           </h2>
           <div className="flex flex-col text-gray-400 py-2">
-            <label htmlFor="user-log">Usuario</label>
+            <label htmlFor="email">Email</label>
             <input
-              placeholder="Nombre de usuario"
+              placeholder="Email"
               className="rounded-lg bg-gray-700 mt-2 p-2 focus:border-blue-500 focus:bg-gray-800 focus:outline-none"
-              type="text"
-              name="user"
-              id="user-log"
+              type="email"
+              name="email"
+              id="email"
               onChange={handleChanges}
-              value={user}
+              value={email}
             />
           </div>
 
