@@ -7,7 +7,7 @@ export interface authState {
 }
 
 const Auth_INITIAL_STATE: authState = {
-  isLogin: false
+  isLogin: true
 };
 interface Props {
   children: ReactNode;
