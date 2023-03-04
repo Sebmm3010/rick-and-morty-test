@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Result } from '../../interfaces';
+import { CharacterResult } from '../../interfaces/charactersList';
 
-export const CharacterCard: FC<Result> = (character) => {
+export const CharacterCard: FC<CharacterResult> = (character) => {
   const { image, name, status, species, location } = character;
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
