@@ -1,12 +1,14 @@
 import { Routes, Route, Navigate } from 'react-router';
 import { AuthRouter } from '../auth/routes/AuthRouter';
 import { HomeRoutes } from '../home/routes/HomeRouter';
+import { useContext } from 'react';
+import { AuthContext } from '../context';
 
 export const AppRouter = () => {
-  const statusAuth = false;
+  const { isLogin } = useContext(AuthContext);
   return (
     <Routes>
-      {statusAuth ? (
+      {isLogin ? (
         // Ruta principal
         <Route path="/*" element={<HomeRoutes />} />
       ) : (
