@@ -1,6 +1,7 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import { useForm } from '../../hooks';
 import { AuthLayout } from '../layout';
+import { AuthContext } from '../../context';
 
 interface IForm {
   user: string;
@@ -16,9 +17,11 @@ export const LoginPage = () => {
   const [showPassword, setshowPassword] = useState<boolean>(false);
   const { formState, handleChanges } = useForm(initForm);
   const { user, password } = formState as IForm;
+  const { setLogin } = useContext(AuthContext);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLogin(true);
     console.log(formState);
   };
 
