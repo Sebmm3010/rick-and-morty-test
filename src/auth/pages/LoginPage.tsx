@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { loginImg } from '../../assets';
 import { useForm } from '../../hooks';
+import { AuthLayout } from '../layout';
 
 interface IForm {
   user: string;
@@ -24,15 +24,7 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 h-screen w-full">
-      <div className="hidden sm:block">
-        <img
-          className="w-full h-screen object-cover"
-          src={loginImg}
-          alt="loginImg"
-        />
-      </div>
-
+    <AuthLayout>
       <div className="bg-[#000300] flex flex-col justify-center">
         <form
           onSubmit={handleSubmit}
@@ -82,6 +74,6 @@ export const LoginPage = () => {
           </button>
         </form>
       </div>
-    </div>
+    </AuthLayout>
   );
 };
