@@ -1,5 +1,4 @@
 import { FormEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks';
 import { AuthLayout } from '../layout';
 
@@ -67,7 +66,6 @@ export const LoginPage = () => {
               />
               Ver contraseña
             </p>
-            <Link to="/auth/registro">Registrarse</Link>
           </div>
           <button className="w-full my-5 py-2 bg-lime-500 shadow-lg shadow-lime-500/50 hover:shadow-lime-500/40 text-[#000300] rounded-lg">
             Ingresar
