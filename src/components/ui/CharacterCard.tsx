@@ -1,8 +1,13 @@
 import { FC } from 'react';
-import { CharacterResult } from '../../interfaces/charactersList';
+import { CharacterResult } from '../../interfaces';
 
-export const CharacterCard: FC<CharacterResult> = (character) => {
-  const { image, name, status, species, location } = character;
+interface Props {
+  character: any;
+}
+
+export const CharacterCard: FC<Props> = ({ character }) => {
+  const { image, name, status, species, location } =
+    character as CharacterResult;
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <img
