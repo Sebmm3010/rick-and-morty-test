@@ -14,3 +14,10 @@ export interface Info {
   next: string | null;
   prev: null | string;
 }
+
+export interface validUser {
+  _id: string;
+  userName: string;
+  email: string;
+  password: string;
+}
