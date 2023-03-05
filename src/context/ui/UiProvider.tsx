@@ -4,10 +4,13 @@ import { UiContext, uiReducer } from './';
 
 export interface UiState {
   showModal: boolean;
+  pageCollection: number[];
+  pathName: string;
 }
-
 const Ui_INITIAL_STATE: UiState = {
-  showModal: false
+  showModal: false,
+  pageCollection: [],
+  pathName: ''
 };
 
 interface Props {
@@ -20,12 +23,19 @@ export const UiProvider: FC<Props> = ({ children }) => {
   const setShowModal = (value: boolean) => {
     dispatch({ type: '[ui] - showModal', payload: value });
   };
-
+  const setPath = (value: string) => {
+    dispatch({ type: '[ui] - setPath', payload: value });
+  };
+  const setPageCollection = (value: number[]) => {
+    dispatch({ type: '[ui] - setPageCollection', payload: value });
+  };
   return (
     <UiContext.Provider
       value={{
         ...state,
-        setShowModal
+        setShowModal,
+        setPath,
+        setPageCollection
       }}
     >
       {children}
