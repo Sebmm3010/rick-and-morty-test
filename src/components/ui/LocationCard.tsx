@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { FC } from 'react';
-import { LocationResult } from '../../interfaces/locationInterface';
+import { LocationResult } from '../../interfaces/locationList';
 
 interface Props {
   location: any;
