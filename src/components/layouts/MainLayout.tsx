@@ -1,6 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from '../../context';
+import { FavoriteProvider } from '../../context/favorite';
 import { UiProvider } from '../../context/ui';
 
 interface Props {
@@ -12,7 +13,9 @@ export const MainLayout: FC<Props> = ({ children }) => {
     <>
       <BrowserRouter>
         <AuthProvider>
-          <UiProvider>{children}</UiProvider>
+          <FavoriteProvider>
+            <UiProvider>{children}</UiProvider>
+          </FavoriteProvider>
         </AuthProvider>
       </BrowserRouter>
     </>
