@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { FC, useContext } from 'react';
 import { UiContext } from '../../context/ui';
+import { FavoriteContext } from '../../context/favorite';
 import { CharacterResult } from '../../interfaces';
 
 interface Props {
@@ -10,18 +11,22 @@ interface Props {
 }
 
 export const CharacterCard: FC<Props> = ({ character }) => {
-  const { image, name, status, species, location } =
+  const { id, image, name, status, species, location } =
     character as CharacterResult;
+  const { setShowModal, setPath, setPageCollection } = useContext(UiContext);
+  const { setActiveElement, favorites } = useContext(FavoriteContext);
 
-  const { setShowModal } = useContext(UiContext);
-  const handleSave = () => {
+  const handleClick = () => {
     setShowModal(true);
+    setActiveElement(id);
+    setPath('/');
+    setPageCollection(favorites.character);
   };
 
   return (
     <div
       className="cursor-pointer max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-      onClick={handleSave}
+      onClick={handleClick}
     >
       <img
         className="rounded-t-lg w-full object-cover"
