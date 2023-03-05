@@ -21,3 +21,9 @@ export interface validUser {
   email: string;
   password: string;
 }
+
+export interface favorite {
+  character: number[];
+  episodes: number[];
+  location: number[];
+}
