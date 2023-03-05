@@ -1,19 +1,17 @@
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import { HomeLayout } from '../../components/layouts';
 import { Pagination, EpisodesCard } from '../../components/ui';
 import { useRickData } from '../../hooks/usuRickData';
-import { FavoriteContext } from '../../context';
 
 export const Capitulos = () => {
   const { results, info, onNext, onPrev, handleData } = useRickData();
-  const { favorites } = useContext(FavoriteContext);
   useEffect(() => {
     handleData('https://rickandmortyapi.com/api/episode');
   }, []);
 
   return (
     <>
-      <HomeLayout collection={favorites.character} path="/">
+      <HomeLayout>
         {!results ? (
           'cargando...'
         ) : (
