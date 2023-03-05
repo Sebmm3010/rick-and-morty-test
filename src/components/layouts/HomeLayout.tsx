@@ -1,6 +1,7 @@
 import { FC, ReactNode, useContext } from 'react';
-import { Navbar, Modal } from '../ui';
-import { UiContext } from '../../context/ui';
+import { UiContext } from '../../context';
+import { Navbar } from '../ui';
+import { Modal } from '../ui/Modal';
 
 interface Props {
   children: ReactNode;
