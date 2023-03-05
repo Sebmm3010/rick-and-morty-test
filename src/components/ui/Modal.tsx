@@ -6,8 +6,16 @@ import { AuthContext } from '../../context/auth-context';
 export const Modal: FC = () => {
   const { setShowModal, pathName, pageCollection } = useContext(UiContext);
   const { user } = useContext(AuthContext);
-  const { setActiveElement, addCharacter, activeElement } =
-    useContext(FavoriteContext);
+  const {
+    setActiveElement,
+    activeElement,
+    addCharacter,
+    deleteCharacter,
+    addEpisode,
+    deleteEpisode,
+    addLocation,
+    deleteLocation
+  } = useContext(FavoriteContext);
 
   const handleClose = () => {
     setShowModal(false);
@@ -15,13 +23,33 @@ export const Modal: FC = () => {
   };
 
   const handleDelete = () => {
-    console.log('borrado');
+    switch (pathName) {
+      case '/':
+        deleteCharacter({ characterId: activeElement, userId: user._id });
+        break;
+      case '/episodes':
+        deleteEpisode({ episodeId: activeElement, userId: user._id });
+        break;
+      case '/locations':
+        deleteLocation({ locationId: activeElement, userId: user._id });
+        break;
+      default:
+        break;
+    }
+    setShowModal(false);
+    setActiveElement(null);
   };
 
   const handleSave = () => {
     switch (pathName) {
       case '/':
         addCharacter({ characterId: activeElement, userId: user._id });
+        break;
+      case '/episodes':
+        addEpisode({ episodeId: activeElement, userId: user._id });
+        break;
+      case '/locations':
+        addLocation({ locationId: activeElement, userId: user._id });
         break;
       default:
         console.log(pathName);
