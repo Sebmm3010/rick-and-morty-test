@@ -5,10 +5,10 @@ import { useContext } from 'react';
 import { AuthContext } from '../context';
 
 export const AppRouter = () => {
-  const { isLogin } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
   return (
     <Routes>
-      {isLogin ? (
+      {auth ? (
         // Ruta principal
         <Route path="/*" element={<HomeRoutes />} />
       ) : (
