@@ -7,7 +7,21 @@ interface ContextProps {
   favorites: favorite;
   // *Metodos
   setActiveElement: (value: number | null) => void;
+  // Characters
   addCharacter: (value: { characterId: number | null; userId: string }) => void;
+  deleteCharacter: (value: {
+    characterId: number | null;
+    userId: string;
+  }) => void;
+  // Episodes
+  addEpisode: (value: { episodeId: number | null; userId: string }) => void;
+  deleteEpisode: (value: { episodeId: number | null; userId: string }) => void;
+  // Locations
+  addLocation: (value: { locationId: number | null; userId: string }) => void;
+  deleteLocation: (value: {
+    locationId: number | null;
+    userId: string;
+  }) => void;
 }
 
 export const FavoriteContext = createContext({} as ContextProps);

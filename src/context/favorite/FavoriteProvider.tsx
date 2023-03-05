@@ -36,6 +36,8 @@ export const FavoriteProvider: FC<Props> = ({ children }) => {
   const setActiveElement = (value: number | null) => {
     dispatch({ type: '[favorite] - setActiveElement', payload: value });
   };
+
+  // ?Character
   const addCharacter = (value: {
     characterId: number | null;
     userId: string;
@@ -43,12 +45,54 @@ export const FavoriteProvider: FC<Props> = ({ children }) => {
     dispatch({ type: '[favorite] - addCharacter', payload: value });
   };
 
+  const deleteCharacter = (value: {
+    characterId: number | null;
+    userId: string;
+  }) => {
+    dispatch({ type: '[favorite] - deleteCharacter', payload: value });
+  };
+
+  // ?Character
+  const addEpisode = (value: { episodeId: number | null; userId: string }) => {
+    dispatch({ type: '[favorite] - addEpisode', payload: value });
+  };
+
+  const deleteEpisode = (value: {
+    episodeId: number | null;
+    userId: string;
+  }) => {
+    dispatch({ type: '[favorite] - deleteEpisode', payload: value });
+  };
+  // ?Location
+  const addLocation = (value: {
+    locationId: number | null;
+    userId: string;
+  }) => {
+    dispatch({ type: '[favorite] - addLocation', payload: value });
+  };
+
+  const deleteLocation = (value: {
+    locationId: number | null;
+    userId: string;
+  }) => {
+    dispatch({ type: '[favorite] - deleteLocation', payload: value });
+  };
+
   return (
     <FavoriteContext.Provider
       value={{
         ...state,
+        // *Metodos
         setActiveElement,
-        addCharacter
+        // ?Character
+        addCharacter,
+        deleteCharacter,
+        // ?Episode
+        addEpisode,
+        deleteEpisode,
+        // ?Location
+        addLocation,
+        deleteLocation
       }}
     >
       {children}
