@@ -28,7 +28,7 @@ export const Navbar = () => {
   return (
     <div className="container flex flex-wrap items-center justify-between mx-auto">
       <Link to="/" className="flex items-center">
-        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-[#00B0C4] ">
+        <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-[#00B0C4] select-none">
           Rick and morty
         </span>
       </Link>
