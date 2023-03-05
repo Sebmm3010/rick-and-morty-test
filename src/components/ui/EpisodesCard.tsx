@@ -1,14 +1,30 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @typescript-eslint/naming-convention */
-import { FC } from 'react';
+import { FC, useContext } from 'react';
+import { FavoriteContext, UiContext } from '../../context';
 import { EpisodesResult } from '../../interfaces/episodesList';
 
 interface Props {
   episodio: any;
 }
 export const EpisodesCard: FC<Props> = ({ episodio }) => {
-  const { name, air_date, episode } = episodio as EpisodesResult;
+  const { id, name, air_date, episode } = episodio as EpisodesResult;
+
+  const { setShowModal, setPath, setPageCollection } = useContext(UiContext);
+  const { setActiveElement, favorites } = useContext(FavoriteContext);
+
+  const handleClick = () => {
+    setShowModal(true);
+    setActiveElement(id);
+    setPath('/episodes');
+    setPageCollection(favorites.episodes);
+  };
   return (
-    <span className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <span
+      className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 cursor-pointer"
+      onClick={handleClick}
+    >
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {name}
       </h5>
