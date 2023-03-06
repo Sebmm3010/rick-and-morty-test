@@ -40,7 +40,7 @@ Bonus
 
 ## Eslint
 
-Se utiliso las reglase basicas de standard with typescript
+Se utiliso las reglas basicas de standard with typescript para este proyecto.
 
 ### Plugins de eslint usados
 
