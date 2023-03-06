@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
-import { HomeLayout } from '../../components/layouts';
+import { Key, useEffect } from 'react';
+import { HomeLayout, GridLayout } from '../../components/layouts';
 import { useRickData } from '../../hooks';
-import { Pagination, LocationCard } from '../../components/ui';
+import { LocationCard } from '../../components/ui';
 
 export const Lugares = () => {
   const { results, info, onNext, onPrev, handleData } = useRickData();
@@ -15,14 +15,11 @@ export const Lugares = () => {
       {!results ? (
         'cargando...'
       ) : (
-        <div className="bg-gray-600 p-5 min-h-screen">
-          <Pagination info={info} onNext={onNext} onPrev={onPrev} />
-          <div className="m-auto mt-3 grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 container content-center w-full">
-            {results.map((result) => (
-              <LocationCard location={result} key={result.id} />
-            ))}
-          </div>
-        </div>
+        <GridLayout info={info} onNext={onNext} onPrev={onPrev}>
+          {results.map((result: { id: Key | null | undefined }) => (
+            <LocationCard location={result} key={result.id} />
+          ))}
+        </GridLayout>
       )}
     </HomeLayout>
   );

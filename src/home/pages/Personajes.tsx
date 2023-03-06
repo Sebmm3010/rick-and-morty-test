@@ -1,7 +1,6 @@
-import { useEffect } from 'react';
-import { HomeLayout } from '../../components/layouts';
+import { Key, useEffect } from 'react';
+import { HomeLayout, GridLayout } from '../../components/layouts';
 import { CharacterCard } from '../../components/ui/CharacterCard';
-import { Pagination } from '../../components/ui/Pagination';
 import { useRickData } from '../../hooks/usuRickData';
 
 export const Personajes = () => {
@@ -15,14 +14,11 @@ export const Personajes = () => {
       {!results ? (
         'Cargando...'
       ) : (
-        <div className="bg-gray-600 p-5 min-h-screen">
-          <Pagination onNext={onNext} onPrev={onPrev} info={info} />
-          <div className="m-auto mt-3 grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 container content-center w-full">
-            {results.map((result) => (
-              <CharacterCard character={result} key={result.id} />
-            ))}
-          </div>
-        </div>
+        <GridLayout info={info} onNext={onNext} onPrev={onPrev}>
+          {results.map((result: { id: Key | null | undefined }) => (
+            <CharacterCard character={result} key={result.id} />
+          ))}
+        </GridLayout>
       )}
     </HomeLayout>
   );
