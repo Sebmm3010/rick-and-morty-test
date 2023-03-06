@@ -1,4 +1,5 @@
-import { FormEvent, useState } from 'react';
+/* eslint-disable no-useless-escape */
+import { FormEvent, useMemo, useState } from 'react';
 import { AuthLayout } from '../../components/layouts';
 import { useForm, useValidUser } from '../../hooks';
 
@@ -17,9 +18,14 @@ export const LoginPage = () => {
   const { formState, handleChanges } = useForm(initForm);
   const { email, password } = formState as IForm;
   const { handleValidUser } = useValidUser();
+  const validEmail = useMemo(
+    () => /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email),
+    [email]
+  );
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!validEmail) return;
     handleValidUser(formState as IForm);
   };
 
