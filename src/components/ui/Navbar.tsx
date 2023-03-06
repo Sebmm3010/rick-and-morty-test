@@ -11,7 +11,7 @@ export interface navbarLink {
 const navbarLinks: navbarLink[] = [
   {
     path: '/',
-    name: 'Personaje'
+    name: 'Personajes'
   },
   {
     path: '/episodes',
@@ -34,6 +34,7 @@ export const Navbar = () => {
       </Link>
       <div className="flex md:order-2 gap-2 items-center justify-center">
         <p className="text-white">{user.userName}</p>
+
         <button
           onClick={() =>
             setLogout({
