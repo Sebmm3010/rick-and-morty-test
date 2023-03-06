@@ -1,6 +1,6 @@
 import { FC, ReactNode, useContext } from 'react';
 import { UiContext } from '../../context';
-import { Navbar } from '../ui';
+import { BottomNav, Navbar } from '../ui';
 import { Modal } from '../ui/Modal';
 
 interface Props {
@@ -14,6 +14,7 @@ export const HomeLayout: FC<Props> = ({ children }) => {
         <Navbar />
       </nav>
       {children}
+      <BottomNav />
       {showModal ? <Modal /> : null}
     </>
   );

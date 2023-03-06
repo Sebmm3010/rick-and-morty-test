@@ -1,3 +1,4 @@
+export * from './BottomNav';
 export * from './CharacterCard';
 export * from './EpisodesCard';
 export * from './LocationCard';
