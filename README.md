@@ -6,7 +6,7 @@
     Prueba técnica con la Rick and Morty API
     <br/>
     <br/>
-    <a href="https://rick-and-morty-test-36l1ofu1x-sebmm3010.vercel.app/auth/login">View Demo</a>
+    <a href="https://rick-and-morty-test-git-main-sebmm3010.vercel.app/">View Demo</a>
     .
   </p>
 </p>
