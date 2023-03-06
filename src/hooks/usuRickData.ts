@@ -1,8 +1,8 @@
 import { getApiData } from '../utils/getApiData';
-import { DataList, Info, Results } from '../interfaces';
+import { DataList, Info } from '../interfaces';
 import { useState } from 'react';
 export const useRickData = () => {
-  const [results, setResults] = useState<Results | null>(null);
+  const [results, setResults] = useState<any>(null);
   const [info, setInfo] = useState<Info>({
     count: 0,
     pages: 0,
@@ -14,6 +14,7 @@ export const useRickData = () => {
     getApiData(url).then((data: DataList) => {
       setResults(data.results);
       setInfo(data.info);
+      console.log(results);
     });
   };
 
